@@ -1,6 +1,8 @@
+import { useState } from "react";
 import { Star, MapPin, Phone, Globe, ChevronRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
+import { AnalysisModal } from "@/components/AnalysisModal";
 
 interface BusinessCardProps {
   id: string;
@@ -16,6 +18,7 @@ interface BusinessCardProps {
 }
 
 export const BusinessCard = ({
+  id,
   name,
   category,
   rating,
@@ -26,6 +29,7 @@ export const BusinessCard = ({
   hasPhone = true,
   isOnline = true,
 }: BusinessCardProps) => {
+  const [showAnalysis, setShowAnalysis] = useState(false);
   const getRatingColor = (rating: number) => {
     if (rating >= 4.5) return "text-rating-excellent";
     if (rating >= 3.5) return "text-rating-good";
@@ -91,11 +95,29 @@ export const BusinessCard = ({
           )}
         </div>
 
-        <Button className="w-full bg-primary hover:bg-primary/90 text-primary-foreground font-medium">
+        <Button 
+          onClick={() => setShowAnalysis(true)}
+          className="w-full bg-primary hover:bg-primary/90 text-primary-foreground font-medium"
+        >
           Analisar Perfil
           <ChevronRight className="h-4 w-4 ml-1" />
         </Button>
       </div>
+
+      <AnalysisModal 
+        isOpen={showAnalysis}
+        onClose={() => setShowAnalysis(false)}
+        business={{
+          id,
+          name,
+          category,
+          rating,
+          reviewCount,
+          address,
+          hasWebsite,
+          hasPhone
+        }}
+      />
     </Card>
   );
 };

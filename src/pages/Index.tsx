@@ -1,6 +1,7 @@
 import { Header } from "@/components/Header";
 import { SearchFilters } from "@/components/SearchFilters";
 import { BusinessCard } from "@/components/BusinessCard";
+import { AIInsights } from "@/components/AIInsights";
 import padariaImg from "@/assets/padaria.jpg";
 import clinicaImg from "@/assets/clinica.jpg";
 import restauranteImg from "@/assets/restaurante.jpg";
@@ -78,6 +79,9 @@ const Index = () => {
             e analise a presença digital com o poder da IA.
           </p>
         </div>
+
+        {/* AI Insights */}
+        <AIInsights />
 
         {/* Search Filters */}
         <div className="mb-12">
