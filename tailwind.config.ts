@@ -57,6 +57,20 @@ export default {
           border: "hsl(var(--sidebar-border))",
           ring: "hsl(var(--sidebar-ring))",
         },
+        rating: {
+          excellent: "hsl(var(--rating-excellent))",
+          good: "hsl(var(--rating-good))",
+          fair: "hsl(var(--rating-fair))",
+          poor: "hsl(var(--rating-poor))",
+        },
+      },
+      backgroundImage: {
+        "gradient-primary": "var(--gradient-primary)",
+        "gradient-card": "var(--gradient-card)",
+      },
+      boxShadow: {
+        glow: "var(--shadow-glow)",
+        card: "var(--shadow-card)",
       },
       borderRadius: {
         lg: "var(--radius)",
